@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @alumno.nombre
+%p
+  %b Fecha nacimiento:
+  = @alumno.fecha_nacimiento
+%p
+  %b Documento:
+  = @alumno.documento
+%p
+  %b Maestra:
+  = @alumno.maestra_id
+
+= link_to 'Edit', edit_alumno_path(@alumno)
+\|
+= link_to 'Back', alumnos_path

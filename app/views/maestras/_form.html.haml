@@ -1,0 +1,22 @@
+= form_for @maestra do |f|
+  -if @maestra.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@maestra.errors.count, "error")} prohibited this maestra from being saved:"
+      %ul
+        - @maestra.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :nombre
+    = f.text_field :nombre
+  .field
+    = f.label :fecha_nacimiento
+    = f.date_select :fecha_nacimiento
+  .field
+    = f.label :documento
+    = f.text_field :documento
+  .field
+    = f.label :escuela_id
+    = f.text_field :escuela_id
+  .actions
+    = f.submit 'Save'

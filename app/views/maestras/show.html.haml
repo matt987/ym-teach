@@ -1,0 +1,38 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @maestra.nombre
+%p
+  %b Fecha nacimiento:
+  = @maestra.fecha_nacimiento
+%p
+  %b Documento:
+  = @maestra.documento
+%p
+  %b Escuela:
+  = @maestra.escuela_id
+%p
+  %b Alumnos:
+  #alumnos
+    = render 'lista_alumnos'
+  %br
+  = form_tag buscar_alumnos_path(maestra_id: @maestra.id), remote: true do
+    = text_field_tag 'buscar','', placeholder: 'Buscar/Agregar Alumno'
+    = submit_tag 'Aceptar'
+    = link_to 'Limpiar', buscar_alumnos_path(limpiar: true),remote: true,method: 'post'
+  #resultado
+
+= link_to 'Edit', edit_maestra_path(@maestra)
+\|
+= link_to 'Back', maestras_path
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+= form_for @alumno, :remote => true do |f|
+  %table
+    %tr
+      %th Nombre
+      %th Documento
+      %th
+    %tr
+      %td
+        = f.text_field :nombre
+        = f.hidden_field :maestra_id, :value => params[:maestra_id]
+      %td= f.text_field :documento
+      %td= f.submit 'Agregar'
+    -if @alumno.errors.any?
+      %tr
+        %td= @alumno.errors[:nombre].first.to_s
+        %td= @alumno.errors[:documento].first.to_s
+        %td

@@ -1,0 +1,27 @@
+%h1 Listing maestras
+
+%table
+  %tr
+    %th Nombre
+    %th Fecha nacimiento
+    %th Documento
+    %th Escuela
+    %th
+    %th
+    %th
+
+  - @maestras.each do |maestra|
+    %tr{:class => cycle('impar', 'par')}
+      %td= maestra.nombre
+      %td= maestra.fecha_nacimiento
+      %td= maestra.documento
+      %td= maestra.escuela_id
+      %td= link_to 'Show', maestra
+      %td= link_to 'Edit', edit_maestra_path(maestra)
+      %td= link_to 'Destroy', maestra, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Maestra', new_maestra_path
+
+:javascript

@@ -1,0 +1,18 @@
+-if @alumnos.blank?
+  No tiene alumnos a cargo
+-else  
+  %table
+    %tr
+      %th Nombre
+      %th Documento
+      %th
+    - @alumnos.each do |alumno|
+      %tr
+        %td= alumno.nombre
+        %td= alumno.documento
+        %td
+          -if params[:maestra_id]
+            = link_to 'Add', agregar_alumno_maestra_path( params[:maestra_id], alumno_id: alumno), remote: true
+          -else
+            = link_to 'X',desagregar_alumno_maestra_path(@maestra, alumno_id: alumno.id), remote: true
+        

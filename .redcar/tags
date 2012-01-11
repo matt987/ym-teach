@@ -1,4 +1,4 @@
-1326293146
+1326293575
 Alumno	/home/matts/proyectos/ym-teach/app/models/alumno.rb	class Alumno 
 AlumnoTest	/home/matts/proyectos/ym-teach/test/unit/alumno_test.rb	class AlumnoTest 
 AlumnosController	/home/matts/proyectos/ym-teach/app/controllers/alumnos_controller.rb	class AlumnosController 

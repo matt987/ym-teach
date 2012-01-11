@@ -1,15 +1,5 @@
 class MaestrasController < ApplicationController
   respond_to :html, :js, :xml, :json
-  # GET /maestras
-  # GET /maestras.json
-  def index
-    @maestras = Maestra.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @maestras }
-    end
-  end
-
   # GET /maestras/1
   # GET /maestras/1.json
   def show
@@ -37,6 +27,36 @@ class MaestrasController < ApplicationController
       format.js {render 'accion_alumno'}
     end
   end  
+  
+  def agregar_materia
+    @maestra = Maestra.find(params[:id])
+    @materia = Materia.find(params[:materia_id])
+    @materia.update_attributes(maestra_id: @maestra)
+    @materias = @maestra.materias
+    respond_to do |format|
+      format.js {render 'accion_materia'}
+    end
+  end
+
+  def desagregar_materia
+    @maestra = Maestra.find(params[:id])
+    materia = @maestra.materias.find(params[:materia_id])
+    materia.update_attributes(maestra_id: nil)
+    @materias = @maestra.materias
+    respond_to do |format|
+      format.js {render 'accion_materias'}
+    end
+  end    
+  
+  # GET /maestras
+  # GET /maestras.json
+  def index
+    @maestras = Maestra.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @maestras }
+    end
+  end
   
   # GET /maestras/new
   # GET /maestras/new.json

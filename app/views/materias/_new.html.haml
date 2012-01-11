@@ -1,0 +1,14 @@
+= form_for @materia, :remote => true do |f|
+  %table
+    %tr
+      %th Descripcion
+      %th
+    %tr
+      %td
+      = f.text_field :descripcion
+        = f.hidden_field :maestra_id, :value => params[:maestra_id]
+      %td= f.submit 'Agregar'
+    -if @maestra.errors.any?
+      %tr
+        %td= @maestra.errors[:descripcion].first.to_s
+        %td

@@ -1,4 +1,5 @@
-1326293575
+1326300052
+AddMaestraIdToMaterias	/home/matts/proyectos/ym-teach/db/migrate/20120111162928_add_maestra_id_to_materias.rb	class AddMaestraIdToMaterias 
 Alumno	/home/matts/proyectos/ym-teach/app/models/alumno.rb	class Alumno 
 AlumnoTest	/home/matts/proyectos/ym-teach/test/unit/alumno_test.rb	class AlumnoTest 
 AlumnosController	/home/matts/proyectos/ym-teach/app/controllers/alumnos_controller.rb	class AlumnosController 
@@ -27,14 +28,18 @@ MateriasHelperTest	/home/matts/proyectos/ym-teach/test/unit/helpers/materias_hel
 TestCase	/home/matts/proyectos/ym-teach/test/test_helper.rb	class ActiveSupport::TestCase
 YmTeach	/home/matts/proyectos/ym-teach/config/application.rb	module YmTeach
 agregar_alumno	/home/matts/proyectos/ym-teach/app/controllers/maestras_controller.rb	  def agregar_alumno
+agregar_materia	/home/matts/proyectos/ym-teach/app/controllers/maestras_controller.rb	  def agregar_materia
 buscar	/home/matts/proyectos/ym-teach/app/controllers/alumnos_controller.rb	  def buscar
+buscar	/home/matts/proyectos/ym-teach/app/controllers/materias_controller.rb	  def buscar
 change	/home/matts/proyectos/ym-teach/db/migrate/20120110113846_create_materias.rb	  def change
 change	/home/matts/proyectos/ym-teach/db/migrate/20120110113948_create_alumnos.rb	  def change
 change	/home/matts/proyectos/ym-teach/db/migrate/20120110114019_create_maestras.rb	  def change
+change	/home/matts/proyectos/ym-teach/db/migrate/20120111162928_add_maestra_id_to_materias.rb	  def change
 create	/home/matts/proyectos/ym-teach/app/controllers/alumnos_controller.rb	  def create
 create	/home/matts/proyectos/ym-teach/app/controllers/maestras_controller.rb	  def create
 create	/home/matts/proyectos/ym-teach/app/controllers/materias_controller.rb	  def create
 desagregar_alumno	/home/matts/proyectos/ym-teach/app/controllers/maestras_controller.rb	  def desagregar_alumno
+desagregar_materia	/home/matts/proyectos/ym-teach/app/controllers/maestras_controller.rb	  def desagregar_materia
 destroy	/home/matts/proyectos/ym-teach/app/controllers/alumnos_controller.rb	  def destroy
 destroy	/home/matts/proyectos/ym-teach/app/controllers/maestras_controller.rb	  def destroy
 destroy	/home/matts/proyectos/ym-teach/app/controllers/materias_controller.rb	  def destroy

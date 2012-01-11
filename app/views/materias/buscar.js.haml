@@ -1,0 +1,12 @@
+-if params.has_key?(:limpiar)
+  -resultado = "" 
+  :plain
+    $('#buscar').val('');
+-else
+  -unless @materias.blank?
+    -resultado = render 'maestras/lista_materias'
+  -else
+    -resultado = render 'new'
+
+:plain
+  $('#resultado').html("#{escape_javascript resultado}")

@@ -1,4 +1,5 @@
 class MateriasController < ApplicationController
+  respond_to :html, :js, :xml, :json
   # GET /materias
   # GET /materias.json
   def index
@@ -10,6 +11,15 @@ class MateriasController < ApplicationController
     end
   end
 
+  def buscar
+    @materias = Materia.no_asignadas.where("descripcion like ?",'%' + params[:buscar] + '%') unless params.has_key?(:limpiar)
+    if @materias.blank?
+      @materia = Materia.new; 
+      @materia[:descripcion] = params[:buscar] 
+    end
+    respond_with @materias
+  end
+  
   # GET /materias/1
   # GET /materias/1.json
   def show
@@ -41,16 +51,10 @@ class MateriasController < ApplicationController
   # POST /materias.json
   def create
     @materia = Materia.new(params[:materia])
-
-    respond_to do |format|
-      if @materia.save
-        format.html { redirect_to @materia, notice: 'Materia was successfully created.' }
-        format.json { render json: @materia, status: :created, location: @materia }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @materia.errors, status: :unprocessable_entity }
-      end
-    end
+    @materia.save
+    @materias = Materia.asignadas(@materia.maestra_id)
+    @maestra = @materia.maestra
+    respond_with @materia
   end
 
   # PUT /materias/1
